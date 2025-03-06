@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Test Task: Recipe App
 
-## Getting Started
+## Objective
 
-First, run the development server:
+Create a React-based application that allows users to view recipes, search for them, filter them by category, and manage a list of favorite recipes. The app must use the [TheMealDB API](https://www.themealdb.com/api.php?ref=apilist.fun) for recipe data, and implement pagination, search functionality, and other requirements as described below.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Technologies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Frontend**: React, TypeScript
+- **API**: [TheMealDB API](https://www.themealdb.com/api.php?ref=apilist.fun)
+- **State Management**: Tanstack Query (for data fetching and caching)
+- **Other Libraries**: Any auxiliary libraries as needed
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pages & Features
 
-## Learn More
+### 1. All Recipes Page
 
-To learn more about Next.js, take a look at the following resources:
+- Display a list of recipes in a card format.
+- Each card should display the following details:
+  - Photo
+  - Name
+  - Category
+  - Place of origin (Area)
+- **Pagination**: 
+  - Implement pagination for the list of recipes. If there are more than 10 pages, display pages 1–7, then `...`, and the last page.
+  - The user should be able to navigate through the pages using next/previous buttons and direct page numbers.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Single Recipe Page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Display a detailed view of a single recipe, including:
+  - Recipe name
+  - Image
+  - Category
+  - Area
+  - Cooking instructions
+  - Ingredients (with corresponding measurements)
+  - Source URL
+  - YouTube video link (if available)
 
-## Deploy on Vercel
+### 3. Favorite Recipes Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Allow users to add recipes to a "favorites" list (like a shopping cart).
+- Display each favorite recipe as a card.
+- Display a combined list of all ingredients from the selected recipes along with their measurements.
+- Provide cooking instructions for the selected recipes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Key Requirements
+
+- **Recipe Filtering by Category**: 
+  - Implement category filtering on the frontend (no need to filter recipes through the API).
+  - Show a dropdown or filter options where users can filter recipes by category.
+  
+- **Debounced Search**: 
+  - Implement a debounced search to search for recipes through the API based on user input.
+  
+- **Pagination**:
+  - Pagination should be implemented only on the frontend (via buttons for navigating pages).
+  
+- **API Integration**:
+  - Use the [TheMealDB API](https://www.themealdb.com/api.php?ref=apilist.fun) to fetch recipe data (search, category filtering, etc.).
+  - Use `Tanstack Query` for managing data fetching, caching, and state management instead of using a traditional state manager.
+
+---
+
+## Example Data
+
+```json
+{
+  "meals": [
+    {
+      "idMeal": "52850",
+      "strMeal": "Chicken Couscous",
+      "strDrinkAlternate": null,
+      "strCategory": "Chicken",
+      "strArea": "Moroccan",
+      "strInstructions": "Heat the olive oil in a large frying pan...",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/qxytrx1511304021.jpg",
+      "strTags": null,
+      "strYoutube": "https://www.youtube.com/watch?v=GZQGy9oscVk",
+      "strIngredient1": "Olive Oil",
+      "strIngredient2": "Onion",
+      "strIngredient3": "Chicken Breast",
+      "strIngredient4": "Ginger",
+      "strIngredient5": "Harissa Spice",
+      "strIngredient6": "Dried Apricots",
+      "strIngredient7": "Chickpeas",
+      "strIngredient8": "Couscous",
+      "strIngredient9": "Chicken Stock",
+      "strIngredient10": "Coriander",
+      "strMeasure1": "1 tbsp",
+      "strMeasure2": "1 chopped",
+      "strMeasure3": "200g",
+      "strMeasure4": "pinch",
+      "strMeasure5": "2 tblsp ",
+      "strMeasure6": "10",
+      "strMeasure7": "220g",
+      "strMeasure8": "200g",
+      "strMeasure9": "200ml",
+      "strMeasure10": "Handful",
+      "strSource": "https://www.bbcgoodfood.com/recipes/13139/onepan-chicken-couscous"
+    }
+  ]
+}
+
