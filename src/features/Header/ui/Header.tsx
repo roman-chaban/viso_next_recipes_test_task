@@ -1,10 +1,12 @@
 "use client";
 
 import { FC } from "react";
-import Link from "next/link";
-import { nav } from "./types/nav";
 
-export const Header: FC = () => {
+import Link from "next/link";
+
+import { nav } from "../types/nav";
+
+const Header: FC = () => {
   return (
     <header className='bg-gray-800 p-4'>
       <nav className='container mx-auto'>
@@ -21,3 +23,5 @@ export const Header: FC = () => {
     </header>
   );
 };
+
+export default Header;

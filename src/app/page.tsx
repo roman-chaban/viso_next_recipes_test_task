@@ -1,6 +1,6 @@
 "use client";
 
-import { Recipes } from "@/features/Recipes/Recipes";
+import { Recipes } from "@/features/Recipes/ui/Recipes";
 import { client } from "@/shared/client/client";
 
 import { QueryClientProvider } from "@tanstack/react-query";

@@ -13,6 +13,8 @@ export interface Meal {
   strImageSource: string | null;
   strCreativeCommonsConfirmed: string | null;
   dateModified: string | null;
+  [key: `strMeasure${number}`]: string | undefined;
+  [key: `strIngredient${number}`]: string | undefined;
 }
 
 export interface Ingredient {
